@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,6 +10,12 @@ import { CommonModule } from '@angular/common';
 })
 export class OrderListComponent {
   @Input() orders: any[] = [];
+  isSmallScreen: boolean = window.innerWidth < 576;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isSmallScreen = window.innerWidth < 576;
+  }
 
   statusClass(status: string): string {
     return status.toLowerCase().replace(' ', '-');

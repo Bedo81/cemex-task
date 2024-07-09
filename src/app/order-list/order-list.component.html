@@ -1,5 +1,5 @@
 <div class="order-list">
-  <div class="order-list-header">
+  <div class="order-list-header" *ngIf="!isSmallScreen">
     <div class="header-item">Status</div>
     <div class="header-item">Order Number</div>
     <div class="header-item">Product Line</div>
@@ -7,15 +7,26 @@
     <div class="header-item">Quantity</div>
     <div class="header-item">Date Requested</div>
   </div>
-  <div class="order-card" *ngFor="let order of orders">
-    <div class="order-item status-item">
-      <div class="status-indicator" [ngClass]="statusClass(order.status)"></div>
-      {{ order.status }}
+  <ng-container *ngIf="isSmallScreen">
+    <div class="order-card" *ngFor="let order of orders">
+      <div class="order-item">Status: <span class="status-indicator" [ngClass]="statusClass(order.status)"></span>{{ order.status }}</div>
+      <div class="order-item">Order Number: {{ order.orderNumber }}</div>
+      <div class="order-item">Product Line: {{ order.productLine }}</div>
+      <div class="order-item">Product: {{ order.product }}</div>
+      <div class="order-item">Quantity: {{ order.quantity }}</div>
+      <div class="order-item">Date Requested: {{ order.dateRequested | date: 'dd.MM.yyyy' }}</div>
     </div>
-    <div class="order-item">{{ order.orderNumber }}</div>
-    <div class="order-item">{{ order.productLine }}</div>
-    <div class="order-item">{{ order.product }}</div>
-    <div class="order-item">{{ order.quantity }}</div>
-    <div class="order-item">{{ order.dateRequested | date: 'dd.MM.yyyy' }}</div>
-  </div>
+  </ng-container>
+  <ng-container *ngIf="!isSmallScreen">
+    <div class="order-card" *ngFor="let order of orders">
+      <div class="order-item status-item">
+        <span class="status-indicator" [ngClass]="statusClass(order.status)"></span>{{ order.status }}
+      </div>
+      <div class="order-item">{{ order.orderNumber }}</div>
+      <div class="order-item">{{ order.productLine }}</div>
+      <div class="order-item">{{ order.product }}</div>
+      <div class="order-item">{{ order.quantity }}</div>
+      <div class="order-item">{{ order.dateRequested | date: 'dd.MM.yyyy' }}</div>
+    </div>
+  </ng-container>
 </div>

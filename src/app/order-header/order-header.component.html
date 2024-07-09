@@ -2,14 +2,16 @@
   <div class="filter-section">
     <div class="status-filters">
       <label>Status</label>
-      <nz-checkbox-group [(ngModel)]="checkOptions" (ngModelChange)="onFilterChange()"></nz-checkbox-group>
+      <nz-checkbox-group [(ngModel)]="checkOptions" (ngModelChange)="onFilterChange()" class="status-options"></nz-checkbox-group>
     </div>
     <div class="vertical-line"></div>
     <div class="product-line-filter">
       <label>Product Line</label>
       <nz-select nzPlaceHolder="All Product Lines" [(ngModel)]="selectedProductLine" (ngModelChange)="onFilterChange()">
         <nz-option nzValue="All" nzLabel="All Product Lines"></nz-option>
-        <!-- Add other options here -->
+        <nz-option nzValue="Ready-Mix" nzLabel="Ready-Mix"></nz-option>
+        <nz-option nzValue="Cement" nzLabel="Cement"></nz-option>
+        <nz-option nzValue="Aggregates" nzLabel="Aggregates"></nz-option>
       </nz-select>
     </div>
     <div class="vertical-line"></div>

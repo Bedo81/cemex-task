@@ -1,0 +1,21 @@
+// Variables
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$background-color: #f0f4f8;
+$card-background-color: #fff;
+$in-progress-color: #ffeb3b;
+$pending-color: #f44336;
+$completed-color: #4caf50;
+$border-radius: 8px;
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+$padding: 20px;
+$gap: 20px;
+$text-color: #333;
+
+// Mixins
+@mixin card-style {
+  background-color: $card-background-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  padding: $padding;
+}
