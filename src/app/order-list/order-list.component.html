@@ -16,6 +16,6 @@
     <div class="order-item">{{ order.productLine }}</div>
     <div class="order-item">{{ order.product }}</div>
     <div class="order-item">{{ order.quantity }}</div>
-    <div class="order-item">{{ order.dateRequested | date }}</div>
+    <div class="order-item">{{ order.dateRequested | date: 'dd.MM.yyyy' }}</div>
   </div>
 </div>

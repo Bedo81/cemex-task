@@ -20,11 +20,11 @@
     <div class="date-filters">
       <div class="date-filter">
         <label>From</label>
-        <nz-date-picker [(ngModel)]="fromDate" (ngModelChange)="onFilterChange()"></nz-date-picker>
+        <nz-date-picker [(ngModel)]="fromDate" (ngModelChange)="onFromDateChange($event)" nzFormat="dd.MM.yyyy"></nz-date-picker>
       </div>
       <div class="date-filter">
         <label>To</label>
-        <nz-date-picker [(ngModel)]="toDate" (ngModelChange)="onFilterChange()"></nz-date-picker>
+        <nz-date-picker [(ngModel)]="toDate" (ngModelChange)="onToDateChange($event)" nzFormat="dd.MM.yyyy"></nz-date-picker>
       </div>
     </div>
   </div>

@@ -36,4 +36,20 @@ export class OrderHeaderComponent {
   onSearch() {
     this.search.emit(this.searchTerm);
   }
+
+  onFromDateChange(date: Date | null) {
+    if (date) {
+      date.setHours(0, 0, 0, 0);
+    }
+    this.fromDate = date;
+    this.onFilterChange();
+  }
+
+  onToDateChange(date: Date | null) {
+    if (date) {
+      date.setHours(23, 59, 59, 999);
+    }
+    this.toDate = date;
+    this.onFilterChange();
+  }
 }
