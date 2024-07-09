@@ -1,0 +1,53 @@
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.order-list-header,
+.order-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.order-list-header {
+  font-weight: bold;
+  font-size: 14px;
+  border-bottom: none;
+}
+
+.header-item {
+  flex: 1;
+  text-align: left;
+}
+
+.order-item {
+  flex: 1;
+  text-align: left;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+}
+
+.status-indicator {
+  width: 20px;
+  height: 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+.in-progress {
+  background-color: blue;
+}
+
+.pending {
+  background-color: orange;
+}
+
+.completed {
+  background-color: green;
+}

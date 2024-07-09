@@ -1,0 +1,21 @@
+<div class="order-list">
+  <div class="order-list-header">
+    <div class="header-item">Status</div>
+    <div class="header-item">Order Number</div>
+    <div class="header-item">Product Line</div>
+    <div class="header-item">Product</div>
+    <div class="header-item">Quantity</div>
+    <div class="header-item">Date Requested</div>
+  </div>
+  <div class="order-card" *ngFor="let order of orders">
+    <div class="order-item status-item">
+      <div class="status-indicator" [ngClass]="statusClass(order.status)"></div>
+      {{ order.status }}
+    </div>
+    <div class="order-item">{{ order.orderNumber }}</div>
+    <div class="order-item">{{ order.productLine }}</div>
+    <div class="order-item">{{ order.product }}</div>
+    <div class="order-item">{{ order.quantity }}</div>
+    <div class="order-item">{{ order.dateRequested | date }}</div>
+  </div>
+</div>

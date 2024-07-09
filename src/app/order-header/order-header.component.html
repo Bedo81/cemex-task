@@ -1,0 +1,39 @@
+<div class="header-card">
+  <div class="filter-section">
+    <div class="status-filters">
+      <label>Status</label>
+      <div class="status-options">
+        <label nz-checkbox>Pending</label>
+        <label nz-checkbox>In Progress</label>
+        <label nz-checkbox>Completed</label>
+      </div>
+    </div>
+    <div class="vertical-line"></div>
+    <div class="product-line-filter">
+      <label>Product Line</label>
+      <nz-select nzPlaceHolder="All Product Lines" [(ngModel)]="selectedProductLine" (ngModelChange)="onFilterChange()">
+        <nz-option nzValue="All" nzLabel="All Product Lines"></nz-option>
+        <!-- Add other options here -->
+      </nz-select>
+    </div>
+    <div class="vertical-line"></div>
+    <div class="date-filters">
+      <div class="date-filter">
+        <label>From</label>
+        <nz-date-picker [(ngModel)]="fromDate" (ngModelChange)="onFilterChange()"></nz-date-picker>
+      </div>
+      <div class="date-filter">
+        <label>To</label>
+        <nz-date-picker [(ngModel)]="toDate" (ngModelChange)="onFilterChange()"></nz-date-picker>
+      </div>
+    </div>
+  </div>
+  <div class="search-bar">
+    <nz-input-group [nzSuffix]="suffixTemplate">
+      <input nz-input placeholder="Search for Order Number" [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" />
+    </nz-input-group>
+    <ng-template #suffixTemplate>
+      <i nz-icon nzType="search" (click)="onSearch()" class="search-icon"></i>
+    </ng-template>
+  </div>
+</div>
