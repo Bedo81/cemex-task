@@ -21,10 +21,20 @@ export class OrderHeaderComponent {
   toDate: Date | null = null;
   searchTerm = '';
 
+  checkOptions = [
+    { label: 'Pending', value: 'Pending', checked: false },
+    { label: 'In Progress', value: 'In Progress', checked: false },
+    { label: 'Completed', value: 'Completed', checked: false }
+  ];
+
   @Output() filterChange = new EventEmitter<any>();
   @Output() search = new EventEmitter<string>();
 
   onFilterChange() {
+    this.selectedStatuses = this.checkOptions
+      .filter(option => option.checked)
+      .map(option => option.value);
+
     this.filterChange.emit({
       selectedStatuses: this.selectedStatuses,
       selectedProductLine: this.selectedProductLine,

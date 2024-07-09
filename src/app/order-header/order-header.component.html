@@ -2,11 +2,7 @@
   <div class="filter-section">
     <div class="status-filters">
       <label>Status</label>
-      <div class="status-options">
-        <label nz-checkbox>Pending</label>
-        <label nz-checkbox>In Progress</label>
-        <label nz-checkbox>Completed</label>
-      </div>
+      <nz-checkbox-group [(ngModel)]="checkOptions" (ngModelChange)="onFilterChange()"></nz-checkbox-group>
     </div>
     <div class="vertical-line"></div>
     <div class="product-line-filter">
