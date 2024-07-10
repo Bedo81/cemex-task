@@ -1,5 +1,15 @@
 <div class="container">
-  <h1>Order History</h1>
   <app-order-header (filterChange)="onFilterChange($event)" (search)="onSearch($event)"></app-order-header>
-  <app-order-list [orders]="filteredOrders"></app-order-list>
+  <ng-container *ngIf="filteredOrders.length; else noResults">
+    <app-order-list [orders]="filteredOrders"></app-order-list>
+  </ng-container>
+  <ng-template #noResults>
+    <div class="no-results">
+      <i nz-icon nzType="info-circle" nzTheme="outline"></i>
+      <div class="no-results-text">
+        <h2>Nothing to Display</h2>
+        <p>Please adjust filters to see more results</p>
+      </div>
+    </div>
+  </ng-template>
 </div>

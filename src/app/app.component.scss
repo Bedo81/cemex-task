@@ -1,3 +1,5 @@
+@import '../styles/variables';
+
 .container {
   padding: $padding;
 }
@@ -5,6 +7,34 @@
 h1 {
   text-align: left;
 }
+
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: $secondary-color;
+  margin-top: 50px;
+
+  i {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: $secondary-color;
+  }
+
+  .no-results-text {
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: $text-color;
+    }
+  }
+}
+
 
 .no-results {
   display: flex;

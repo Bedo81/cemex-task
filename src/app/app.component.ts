@@ -4,6 +4,7 @@ import { OrderHeaderComponent } from './order-header/order-header.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderService } from './order.service';
 import { WindowRef } from './window.service';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 interface Order {
   status: string;
@@ -19,7 +20,7 @@ interface Order {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [CommonModule, OrderHeaderComponent, OrderListComponent],
+  imports: [CommonModule, OrderHeaderComponent, OrderListComponent, NzIconModule],
 })
 export class AppComponent implements OnInit {
   orders: Order[] = [];
