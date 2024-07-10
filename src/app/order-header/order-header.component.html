@@ -28,7 +28,7 @@
   </div>
   <div class="search-bar">
     <nz-input-group [nzSuffix]="suffixTemplate">
-      <input nz-input placeholder="Search for Order Number" [(ngModel)]="searchTerm" />
+      <input nz-input placeholder="Search for Order Number" [(ngModel)]="searchTerm" (keydown.enter)="onSearch()" />
     </nz-input-group>
     <ng-template #suffixTemplate>
       <i nz-icon nzType="search" (click)="onSearch()" class="search-icon"></i>

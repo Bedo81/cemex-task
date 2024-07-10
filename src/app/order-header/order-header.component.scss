@@ -57,6 +57,11 @@
   cursor: pointer;
 }
 
+/* Add min-width to product line dropdown */
+.product-line-filter nz-select {
+  min-width: 160px;
+}
+
 @media (max-width: 1024px) {
   .header-card {
     flex-direction: column;
@@ -76,11 +81,6 @@
 
   .status-options {
     flex-direction: row;
-  }
-
-  .date-filters {
-    flex-direction: row;
-    align-items: flex-start;
   }
 
   .vertical-line {
