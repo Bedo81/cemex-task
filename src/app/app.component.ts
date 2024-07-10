@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderHeaderComponent } from './order-header/order-header.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderService } from './order.service';
+import { WindowRef } from './window.service';
 
 interface Order {
   status: string;
@@ -30,11 +31,12 @@ export class AppComponent implements OnInit {
   toDate: Date | null = null;
   searchTerm = '';
 
-  constructor(private orderService: OrderService) {}
+  constructor(private orderService: OrderService, @Inject(WindowRef) private windowRef: WindowRef) {}
 
   ngOnInit() {
     this.orders = this.orderService.getOrders();
     this.filteredOrders = [...this.orders];
+    this.setupWindowResizeListener();
   }
 
   onFilterChange(filters: any) {
@@ -58,5 +60,14 @@ export class AppComponent implements OnInit {
       toDate: this.toDate,
       searchTerm: this.searchTerm,
     });
+  }
+
+  private setupWindowResizeListener() {
+    this.windowRef.nativeWindow.addEventListener('resize', this.onResize.bind(this));
+  }
+
+  private onResize(event: any) {
+    console.log('Window resized:', event.target.innerWidth);
+    // Handle window resize event
   }
 }
